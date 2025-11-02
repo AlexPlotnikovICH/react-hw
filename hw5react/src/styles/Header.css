@@ -1,0 +1,25 @@
+@import './variables.css';
+
+.hero__title {
+	color: var(--spotify-green);
+	width: clamp(20rem, 80vw, 60.7rem);
+	min-height: 4.75rem;
+	font-family: 'Rubik', sans-serif;
+	font-size: clamp(2.5rem, 6vw, 4rem);
+	font-weight: 700;
+	line-height: 100%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.hero__sub {
+	color: var(--spotify-green);
+	margin-top: 2rem;
+	font-family: 'Rubik', sans-serif;
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	font-weight: 700;
+	line-height: 100%;
+	letter-spacing: 0;
+	text-align: center;
+}

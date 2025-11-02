@@ -1,0 +1,23 @@
+@import './variables.css';
+
+.signin-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	background: transparent;
+	border: 2px solid var(--spotify-green);
+	padding: 12px 18px;
+	border-radius: 24px;
+	cursor: pointer;
+	font-size: var(--font-size-medium);
+}
+
+.signin-btn__icon {
+	width: 24px;
+	height: 24px;
+	display: block;
+}
+
+.signin-btn:hover {
+	box-shadow: 0 6px 18px rgba(29, 185, 84, 0.12);
+}

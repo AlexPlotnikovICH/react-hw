@@ -1,0 +1,23 @@
+:root {
+	/* Цвета */
+	--spotify-green: #1ed760;
+	--background-dark: #0c0417;
+
+	/* Фильтры для изменения цвета иконок */
+	--filter-to-blue: brightness(0) saturate(100%) invert(48%) sepia(98%)
+		saturate(1864%) hue-rotate(190deg) brightness(99%) contrast(91%);
+	--twitter-blue: #1181f1;
+
+	/* Размеры */
+	--container-padding: 24px;
+	--icon-size: 24px;
+	--logo-size: 32px;
+
+	/* Эффекты */
+	--border-radius: 50px;
+	--transition-duration: 0.2s;
+}
+:root {
+	--font-family-base: 'Rubik', system-ui, -apple-system, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, sans-serif;
+}
