@@ -1,0 +1,35 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  background-color: #7f99e2;
+  flex-grow: 1;
+  padding: 30px;
+  gap: 30px;
+}
+.columnLeft {
+  flex: 2;
+  max-width: 700px;
+}
+.columnRight {
+  flex: 1;
+  max-width: 350px;
+}
+.columnLeft h2,
+.columnRight h2 {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 20px;
+}

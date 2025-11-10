@@ -1,0 +1,8 @@
+/* Сбрасываем стандартные отступы и устанавливаем блочную модель */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+}
