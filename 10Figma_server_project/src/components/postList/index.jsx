@@ -19,6 +19,7 @@ function PostList({ posts, onLoadMore, onPostDelete }) {
           title={post.title || 'Заголовок'}
           body={post.text || 'ТЕКСТ ПОСТА'}
           postId={post.id}
+          avatarUrl={post.avatar} // Передаем 'avatar' из API в prop 'avatarUrl'
           onDelete={onPostDelete} // <-- Передаем дальше в Post
         />
       ))}

@@ -15,7 +15,6 @@ function PostForm({ onPostCreated }) {
 
   // 6. Эта функция сработает, если валидация прошла
   const onSubmit = async data => {
-    // 'data' - это { title: "...", text: "..." }
     try {
       // 7. Отправляем новый пост на сервер
       const response = await axios.post(

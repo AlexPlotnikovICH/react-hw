@@ -1,5 +1,3 @@
-// src/App.jsx
-
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
@@ -8,7 +6,9 @@ import './App.css'
 import Header from './components/header'
 import PostList from './components/postList'
 import PostForm from './components/postForm' // Убедись, что путь 'components/postForm'
-
+// тут свою аватарку с гитхаба запиливаю
+const MY_GITHUB_AVATAR =
+  'https://avatars.githubusercontent.com/AlexPlotnikovICH'
 // Константа для пагинации
 const POSTS_PER_PAGE = 3
 
@@ -38,6 +38,8 @@ function App() {
   // --- 5. "Секретная" функция для PostForm ---
   // (Этот "подарок" PostForm вызовет, когда создаст пост)
   const handlePostCreated = newPost => {
+    //Принудительно закалачиваю аватарку
+    newPost.avatar = MY_GITHUB_AVATAR
     // Добавляем новый пост в НАЧАЛО нашего 'state'
     setPosts([newPost, ...posts])
     // (Это автоматически обновит 'visiblePosts' на след. рендере)
