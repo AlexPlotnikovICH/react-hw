@@ -36,19 +36,31 @@ function PostForm({ onPostCreated }) {
     // 10. 'handleSubmit' "оборачивает" нашу 'onSubmit'
     <form className={styles.formCard} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.header}>
-        <div className={styles.avatar}></div>
+        <img
+          src='https://avatars.githubusercontent.com/AlexPlotnikovICH'
+          alt='Мой Аватар'
+          className={styles.avatar} // Этот класс уже делает его круглым
+        />
 
         <div className={styles.inputFields}>
-          {/* 11. "Регистрируем" поле 'title' */}
+          {/* --- 1. ДОБАВЬ ЭТОТ БЛОК --- */}
+          <input
+            type='text'
+            placeholder='Ваше имя'
+            className={styles.input} // Используем тот же стиль
+            {...register('userName', { required: 'Имя обязательно!' })}
+          />
+          {errors.userName && (
+            <span className={styles.error}>{errors.userName.message}</span>
+          )}
+          {/* ------------------------- */}
           <input
             type='text'
             placeholder='Заголовок'
             className={styles.input}
-            // 'title' - имя поля
-            // 'required' - правило валидации
+            style={{ marginTop: '10px' }} // <-- Добавь отступ
             {...register('title', { required: 'Заголовок обязателен!' })}
           />
-          {/* 12. Показываем ошибку, если она есть */}
           {errors.title && (
             <span className={styles.error}>{errors.title.message}</span>
           )}

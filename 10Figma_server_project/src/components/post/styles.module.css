@@ -18,7 +18,7 @@
 .userInfo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
 }
 
 .avatar {
@@ -30,18 +30,23 @@
   border: 1px solid white;
 }
 
+.userName {
+  font-size: 28px;
+  font-weight: bold;
+}
+
 .postId {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .body h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .body p {
   margin: 10px 0 0 0;
-  font-size: 28px;
+  font-size: 18px;
   font-weight: bold;
 }
 

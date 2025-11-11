@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 
 // 1. БЫЛО: function Post() {
 //    СТАЛО: (Мы "принимаем" props)
-function Post({ title, body, postId, onDelete, avatarUrl }) {
+function Post({ title, body, postId, onDelete, avatarUrl, userName }) {
   return (
     <div className={styles.postCard}>
       <div className={styles.header}>
@@ -13,7 +13,7 @@ function Post({ title, body, postId, onDelete, avatarUrl }) {
             alt='User Avatar'
             className={styles.avatar} // Стиль .avatar уже сделает его круглым
           />
-          <span>User logo</span>
+          <span className={styles.userName}>{userName}</span>
         </div>
         {/* 2. Отображаем реальный ID, который пришел */}
         <span className={styles.postId}>id: {postId}</span>

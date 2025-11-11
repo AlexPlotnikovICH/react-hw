@@ -1,5 +1,3 @@
-// src/components/postList/index.jsx
-
 import React from 'react'
 // Импортируем "кирпичик" Post
 import Post from '../post' // Используем "умный" импорт папки
@@ -21,6 +19,7 @@ function PostList({ posts, onLoadMore, onPostDelete }) {
           postId={post.id}
           avatarUrl={post.avatar} // Передаем 'avatar' из API в prop 'avatarUrl'
           onDelete={onPostDelete} // <-- Передаем дальше в Post
+          userName={post.userName}
         />
       ))}
 
