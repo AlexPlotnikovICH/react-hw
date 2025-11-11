@@ -1,0 +1,86 @@
+/* src/components/PostForm/styles.module.css */
+
+.formCard {
+  background-color: #3b5998;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  display: flex;
+  gap: 15px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #7f99e2;
+  border: 1px solid white;
+  flex-shrink: 0;
+}
+
+.inputFields {
+  width: 100%;
+}
+
+/* Стилизуем инпуты */
+.input,
+.textarea {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #7f99e2; /* Светлый фон */
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.input {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.textarea {
+  margin-top: 10px;
+  font-size: 14px;
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Стили для кнопки */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.submitButton {
+  background-color: #7f99e2; /* Светлая кнопка */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submitButton:hover {
+  background-color: #6a88d6;
+}
+
+/* Стили для ошибки валидации */
+.error {
+  color: #ffcccc;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}

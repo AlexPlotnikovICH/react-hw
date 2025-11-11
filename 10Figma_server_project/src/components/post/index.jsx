@@ -1,7 +1,9 @@
 import React from 'react'
 import styles from './styles.module.css'
 
-function Post() {
+// 1. БЫЛО: function Post() {
+//    СТАЛО: (Мы "принимаем" props)
+function Post({ title, body, postId }) {
   return (
     <div className={styles.postCard}>
       <div className={styles.header}>
@@ -9,12 +11,18 @@ function Post() {
           <div className={styles.avatar}></div>
           <span>User logo</span>
         </div>
-        <span className={styles.postId}>id поста</span>
+        {/* 2. Отображаем реальный ID, который пришел */}
+        <span className={styles.postId}>id: {postId}</span>
       </div>
 
       <div className={styles.body}>
-        <h3>Заголовок</h3>
-        <p>ТЕКСТ ПОСТА</p>
+        {/* 3. БЫЛО: <h3>Заголовок</h3> */}
+        {/* СТАЛО: (Используем prop 'title') */}
+        <h3>{title}</h3>
+
+        {/* 4. БЫЛО: <p>ТЕКСТ ПОСТА</p> */}
+        {/* СТАЛО: (Используем prop 'body') */}
+        <p>{body}</p>
       </div>
 
       <div className={styles.footer}>
