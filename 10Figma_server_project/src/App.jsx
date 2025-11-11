@@ -43,6 +43,20 @@ function App() {
     // (Это автоматически обновит 'visiblePosts' на след. рендере)
   }
 
+  // --- НОВАЯ ФУНКЦИЯ: Удаление поста ---
+  const handlePostDelete = async postId => {
+    try {
+      // 1. Отправляем запрос на удаление на сервер
+      await axios.delete(
+        `https://691226cf52a60f10c820ce89.mockapi.io/posts/${postId}`
+      )
+
+      // 2. Обновляем наш state, убирая удаленный пост
+      setPosts(currentPosts => currentPosts.filter(post => post.id !== postId))
+    } catch (error) {
+      console.error('Ошибка при удалении поста:', error)
+    }
+  }
   // --- 6. Функция для кнопки "Далее" ---
   const loadMorePosts = () => {
     setVisiblePostsCount(prevCount => prevCount + POSTS_PER_PAGE)
@@ -61,7 +75,11 @@ function App() {
           <h2>Список постов</h2>
           {/* "Кормим" PostList "нарезанными" постами
               и "дарим" ему функцию "Далее" */}
-          <PostList posts={visiblePosts} onLoadMore={loadMorePosts} />
+          <PostList
+            posts={visiblePosts}
+            onLoadMore={loadMorePosts}
+            onPostDelete={handlePostDelete} // <-- "Дарим" функцию удаления
+          />
         </section>
 
         <section className='columnRight'>

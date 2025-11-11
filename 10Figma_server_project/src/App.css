@@ -12,7 +12,7 @@ html {
 .content {
   display: flex;
   justify-content: center;
-  background-color: #7f99e2;
+  background-color: #b3c8ff;
   flex-grow: 1;
   padding: 30px;
   gap: 30px;

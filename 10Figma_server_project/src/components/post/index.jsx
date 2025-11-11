@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 
 // 1. БЫЛО: function Post() {
 //    СТАЛО: (Мы "принимаем" props)
-function Post({ title, body, postId }) {
+function Post({ title, body, postId, onDelete }) {
   return (
     <div className={styles.postCard}>
       <div className={styles.header}>
@@ -26,7 +26,12 @@ function Post({ title, body, postId }) {
       </div>
 
       <div className={styles.footer}>
-        <button className={styles.deleteButton}>Удалить</button>
+        <button
+          className={styles.deleteButton}
+          onClick={() => onDelete(postId)}
+        >
+          Удалить
+        </button>
       </div>
     </div>
   )

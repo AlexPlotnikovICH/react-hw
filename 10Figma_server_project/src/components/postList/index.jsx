@@ -7,7 +7,7 @@ import Post from '../post' // Используем "умный" импорт п�
 import styles from './styles.module.css'
 
 // 1. Компонент "глупый". Он получает 'posts' от "Мозга" (App)
-function PostList({ posts, onLoadMore }) {
+function PostList({ posts, onLoadMore, onPostDelete }) {
   return (
     <div className={styles.listContainer}>
       {/* 2. "Рисуем" список постов, которые нам дали */}
@@ -19,6 +19,7 @@ function PostList({ posts, onLoadMore }) {
           title={post.title || 'Заголовок'}
           body={post.text || 'ТЕКСТ ПОСТА'}
           postId={post.id}
+          onDelete={onPostDelete} // <-- Передаем дальше в Post
         />
       ))}
 
