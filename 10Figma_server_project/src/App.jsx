@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 
-// --- 1. Импортируем ВСЕ нужные компоненты ---
 import Header from './components/header'
 import PostList from './components/postList'
-import PostForm from './components/postForm' // Убедись, что путь 'components/postForm'
+import PostForm from './components/postForm'
 // тут свою аватарку с гитхаба запиливаю
 const MY_GITHUB_AVATAR =
   'https://avatars.githubusercontent.com/AlexPlotnikovICH'
@@ -45,7 +44,7 @@ function App() {
     // (Это автоматически обновит 'visiblePosts' на след. рендере)
   }
 
-  // --- НОВАЯ ФУНКЦИЯ: Удаление поста ---
+  // ---  Удаление поста ---
   const handlePostDelete = async postId => {
     try {
       // 1. Отправляем запрос на удаление на сервер

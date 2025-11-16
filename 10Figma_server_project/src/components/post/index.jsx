@@ -1,8 +1,6 @@
 import React from 'react'
 import styles from './styles.module.css'
 
-// 1. БЫЛО: function Post() {
-//    СТАЛО: (Мы "принимаем" props)
 function Post({ title, body, postId, onDelete, avatarUrl, userName }) {
   return (
     <div className={styles.postCard}>
@@ -20,12 +18,7 @@ function Post({ title, body, postId, onDelete, avatarUrl, userName }) {
       </div>
 
       <div className={styles.body}>
-        {/* 3. БЫЛО: <h3>Заголовок</h3> */}
-        {/* СТАЛО: (Используем prop 'title') */}
         <h3>{title}</h3>
-
-        {/* 4. БЫЛО: <p>ТЕКСТ ПОСТА</p> */}
-        {/* СТАЛО: (Используем prop 'body') */}
         <p>{body}</p>
       </div>
 

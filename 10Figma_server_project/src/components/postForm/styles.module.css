@@ -1,5 +1,3 @@
-/* src/components/PostForm/styles.module.css */
-
 .formCard {
   background-color: #3b5998;
   border-radius: 12px;
@@ -26,7 +24,6 @@
   width: 100%;
 }
 
-/* Стилизуем инпуты */
 .input,
 .textarea {
   width: 100%;
@@ -34,7 +31,7 @@
   border-radius: 6px;
   padding: 10px;
   box-sizing: border-box;
-  background-color: #7f99e2; /* Светлый фон */
+  background-color: #7f99e2;
   color: white;
   font-family: Arial, sans-serif;
 }
@@ -56,7 +53,6 @@
   resize: vertical;
 }
 
-/* Стили для кнопки */
 .footer {
   display: flex;
   justify-content: flex-end;
@@ -64,7 +60,7 @@
 }
 
 .submitButton {
-  background-color: #7f99e2; /* Светлая кнопка */
+  background-color: #7f99e2;
   color: white;
   border: none;
   border-radius: 5px;
@@ -77,7 +73,6 @@
   background-color: #6a88d6;
 }
 
-/* Стили для ошибки валидации */
 .error {
   color: #ffcccc;
   font-size: 14px;

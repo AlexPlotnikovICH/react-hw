@@ -6,7 +6,8 @@
 
   display: flex;
   align-items: center;
-  position: relative; /* Делаем header точкой отсчета для дочерних элементов */
+  position: relative;
+  position: relative;
 
   padding: 0 40px;
   box-sizing: border-box;
@@ -24,11 +25,10 @@
 }
 
 .nav {
-  /* Центрируем навигацию по центру страницы */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  margin-left: 0; /* Убираем старый отступ */
+  margin-left: 0;
 }
 
 .nav ul {
