@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react'
 import CatImage from './components/CatImage'
 import styles from './App.module.css'
