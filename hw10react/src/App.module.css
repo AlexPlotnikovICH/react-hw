@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.appContainer {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: #a5a5b4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f7f6;
+}
+
+.title {
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
