@@ -1,6 +1,6 @@
-import { createStore } from "redux";
-import noteReducer from "./reducers";
+import { createStore } from 'redux'
+import noteReducer from './reducers/index.js'
 
-const store = createStore(noteReducer);
+const store = createStore(noteReducer)
 
-export default store;
+export default store
