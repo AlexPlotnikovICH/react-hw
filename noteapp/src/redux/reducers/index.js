@@ -11,7 +11,9 @@ const noteReducer = (state = initialState, action) => {
           ...state.notes,
           {
             id: Date.now(),
-            text: action.payload,
+            // Достаем данные из нового payload
+            title: action.payload.title,
+            text: action.payload.text,
           },
         ],
       }

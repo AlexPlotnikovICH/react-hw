@@ -1,7 +1,12 @@
-export function addNote(text) {
+// Теперь функция принимает title И text
+export function addNote(title, text) {
   return {
     type: 'ADD_NOTE',
-    payload: text,
+    // Payload теперь не просто строка, а объект с двумя полями
+    payload: {
+      title: title,
+      text: text,
+    },
   }
 }
 
