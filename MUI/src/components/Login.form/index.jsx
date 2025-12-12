@@ -18,7 +18,7 @@ function LoginForm() {
     setEmail('')
   }
   return (
-    <Container>
+    <Container sx={{ mt: 4 }}>
       <Box>
         <Paper elevation={3} style={{ padding: 16 }}>
           <Typography variant='h4'>Enter your data</Typography>
