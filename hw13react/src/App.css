@@ -1,0 +1,22 @@
+* {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #1a1a1a;
+}
+.app-container {
+  max-width: 450px;
+  margin: 60px auto;
+
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #1a1a1a;
+}

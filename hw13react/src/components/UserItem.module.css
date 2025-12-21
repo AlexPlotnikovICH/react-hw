@@ -1,0 +1,32 @@
+.userItem {
+  background-color: white;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 16px;
+  cursor: default;
+  transition: background-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.userItem::before {
+  content: '';
+  display: block;
+  min-width: 35px;
+  height: 35px;
+  background-color: #2196f3;
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.userItem:hover {
+  background-color: #f1f5f9;
+}

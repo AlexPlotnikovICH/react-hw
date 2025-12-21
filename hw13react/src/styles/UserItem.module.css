@@ -1,0 +1,24 @@
+.userItem {
+  background-color: white;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: default;
+  transition: background-color 0.2s;
+}
+
+/* Кружок */
+.userItem::before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-color: #2196f3;
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
