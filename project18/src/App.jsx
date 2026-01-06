@@ -1,18 +1,15 @@
+import React from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import bannerImg from './assets/banner.png'
+
 function App() {
   return (
     <div className='app'>
       <Header />
+
       <div className='container'>
-        <div style={{ marginTop: '40px' }}>
-          <img
-            width='100%'
-            src='/img/banner.jpg'
-            alt='Banner'
-            style={{ borderRadius: '20px' }}
-          />
-        </div>
+        <img className='banner' src={bannerImg} alt='Banner' />
 
         <h1 className='page-title'>Товары</h1>
 
@@ -20,6 +17,7 @@ function App() {
           <p> карточки...</p>
         </div>
       </div>
+
       <Footer />
     </div>
   )
