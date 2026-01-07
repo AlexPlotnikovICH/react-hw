@@ -1,23 +1,35 @@
 import React from 'react'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import bannerImg from './assets/banner.png'
+import { Routes, Route } from 'react-router-dom'
+
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+
+// Импортируем наши комнаты (страницы)
+import Home from './pages/Home'
+import Cart from './pages/Cart'
+import Contacts from './pages/Contacts'
 
 function App() {
   return (
     <div className='app'>
+      {/* Хедер всегда на месте */}
       <Header />
 
       <div className='container'>
-        <img className='banner' src={bannerImg} alt='Banner' />
+        {/* Routes - это место, где меняется контент в зависимости от адреса */}
+        <Routes>
+          {/* Если путь "/", покажи Home */}
+          <Route path='/' element={<Home />} />
 
-        <h1 className='page-title'>Товары</h1>
+          {/* Если путь "/cart", покажи Cart */}
+          <Route path='/cart' element={<Cart />} />
 
-        <div className='sneakers'>
-          <p> карточки...</p>
-        </div>
+          {/* Если путь "/contacts", покажи Contacts */}
+          <Route path='/contacts' element={<Contacts />} />
+        </Routes>
       </div>
 
+      {/* Футер всегда на месте */}
       <Footer />
     </div>
   )

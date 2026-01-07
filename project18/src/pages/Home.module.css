@@ -1,0 +1,26 @@
+.content {
+  padding: 40px;
+}
+
+.banner {
+  display: block;
+  width: 100%;
+  height: 530px;
+  object-fit: cover;
+  margin-top: 28px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 700;
+}
+.sneakersGrid {
+  display: flex;
+  flex-wrap: wrap; /* Если карточки не влезают, переносим на новую строку */
+  justify-content: space-between; /* Раскидываем по краям */
+  gap: 30px; /* Расстояние между карточками (если их станет много и они перенесутся вниз) */
+  margin-bottom: 40px; /* Отступ снизу от всей сетки */
+}
