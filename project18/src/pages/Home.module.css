@@ -19,8 +19,8 @@
 }
 .sneakersGrid {
   display: flex;
-  flex-wrap: wrap; /* Если карточки не влезают, переносим на новую строку */
-  justify-content: space-between; /* Раскидываем по краям */
-  gap: 30px; /* Расстояние между карточками (если их станет много и они перенесутся вниз) */
-  margin-bottom: 40px; /* Отступ снизу от всей сетки */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
 }

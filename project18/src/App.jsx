@@ -3,33 +3,41 @@ import { Routes, Route } from 'react-router-dom'
 
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-
-// Импортируем наши комнаты (страницы)
 import Home from './pages/Home'
 import Cart from './pages/Cart'
-import Contacts from './pages/Contacts'
+import Contacts from './pages/Contacts' // Не забудь этот импорт!
 
 function App() {
+  const [cartItems, setCartItems] = React.useState([])
+
+  // Функция добавления
+  const onAddToCart = obj => {
+    setCartItems(prev => [...prev, obj])
+  } // <--- ВОТ ЭТА СКОБКА ОЧЕНЬ ВАЖНА
+
+  // Функция удаления
+  const onRemoveItem = id => {
+    setCartItems(prev => prev.filter(item => item.id !== id))
+  }
+
   return (
     <div className='app'>
-      {/* Хедер всегда на месте */}
       <Header />
 
       <div className='container'>
-        {/* Routes - это место, где меняется контент в зависимости от адреса */}
         <Routes>
-          {/* Если путь "/", покажи Home */}
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home onAddToCart={onAddToCart} />} />
 
-          {/* Если путь "/cart", покажи Cart */}
-          <Route path='/cart' element={<Cart />} />
+          {/* ОБЯЗАТЕЛЬНО: Передаем onRemove={onRemoveItem} сюда */}
+          <Route
+            path='/cart'
+            element={<Cart items={cartItems} onRemove={onRemoveItem} />}
+          />
 
-          {/* Если путь "/contacts", покажи Contacts */}
           <Route path='/contacts' element={<Contacts />} />
         </Routes>
       </div>
 
-      {/* Футер всегда на месте */}
       <Footer />
     </div>
   )

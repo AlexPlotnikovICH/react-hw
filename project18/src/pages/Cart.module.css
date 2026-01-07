@@ -1,0 +1,112 @@
+/* Общий контейнер */
+.cartWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+.content {
+  padding: 40px; /* Отступы сверху и по бокам (как на Главной) */
+  padding-bottom: 100px; /* Большой отступ снизу до Футера */
+}
+/* --- ЛЕВАЯ КОЛОНКА (СПИСОК) --- */
+.cartItems {
+  flex: 1;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #ffffff;
+}
+
+.cartItemImg {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.cartItemInfo {
+  margin-right: 20px;
+  flex: 1;
+}
+
+.cartItemTitle {
+  font-size: 16px;
+  margin: 0 0 5px 0;
+}
+
+.cartItemPrice {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1c1c1c;
+}
+
+.removeBtn {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.removeBtn:hover {
+  opacity: 1;
+}
+
+/* --- ПРАВАЯ КОЛОНКА (ИТОГО - КАК НА СКРИНЕ) --- */
+.totalBlock {
+  width: 300px; /* Немного шире, чтобы текст влезал */
+  background: #fafafa; /* Светло-серый фон */
+  border-radius: 20px; /* Скругление как у карточек */
+  padding: 30px;
+  height: fit-content; /* Высота подстраивается под контент */
+}
+
+.totalTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  text-align: center; /* На скрине заголовок по центру */
+}
+
+/* Список названий товаров */
+.totalList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Отступ между названиями */
+  margin-bottom: 20px;
+}
+
+.totalItemName {
+  font-size: 16px;
+  font-weight: 400;
+  color: #5c5c5c; /* Чуть серый текст, не черный */
+  line-height: 1.4;
+}
+
+/* Линия-разделитель */
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: #cecece; /* Серый цвет линии */
+  margin-bottom: 15px;
+}
+
+/* Блок цены */
+.priceLabel {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #1c1c1c;
+}
+
+.totalPrice {
+  font-size: 28px; /* Крупная цена */
+  font-weight: 700;
+  color: #1c1c1c;
+}
