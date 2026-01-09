@@ -15,7 +15,7 @@ function Card({ image, name, price, onClickPlus }) {
 
   return (
     <div className={styles.card}>
-      {/* Картинка товара */}
+      {/* Картинка тов*/}
       <img className={styles.image} src={image} alt='Sneakers' />
 
       {/* Название */}

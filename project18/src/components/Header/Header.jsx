@@ -1,5 +1,4 @@
 import React from 'react'
-// 1. Меняем импорт на NavLink
 import { Link, NavLink } from 'react-router-dom'
 import styles from './Header.module.css'
 

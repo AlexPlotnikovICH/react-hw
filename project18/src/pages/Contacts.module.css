@@ -1,0 +1,111 @@
+.content {
+  padding: 40px;
+  padding-bottom: 100px; /* Отступ до футера */
+}
+
+/* Верхняя информация (телефон, email) */
+.infoBlock {
+  margin-bottom: 40px;
+  color: #9d9d9d; /* Серый цвет текста */
+  line-height: 1.6;
+}
+
+.infoBlock p {
+  margin: 0;
+}
+
+/* Основной контейнер: Слева форма, Справа соцсети */
+.wrapper {
+  display: flex;
+  gap: 60px; /* Расстояние между колонками */
+}
+
+/* --- ЛЕВАЯ КОЛОНКА: ФОРМА --- */
+.formBlock {
+  flex: 1; /* Занимает всё доступное место */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Отступы между полями ввода */
+}
+
+/* Группа для Имени и Email (чтобы стояли в одну строку) */
+.inputGroup {
+  display: flex;
+  gap: 20px;
+}
+
+/* Общий стиль для всех полей ввода */
+.input,
+.textarea {
+  background: #f8f8f8; /* Светло-серый фон */
+  border: 1px solid #f3f3f3; /* Едва заметная рамка */
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 16px;
+  outline: none; /* Убираем синюю обводку при клике */
+  width: 100%;
+  box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #bdbdbd;
+}
+
+.textarea {
+  resize: none; /* Запрещаем растягивать текстовое поле */
+  height: 150px;
+  font-family: inherit; /* Чтобы шрифт был такой же, как везде */
+}
+
+/* Черная кнопка */
+.submitBtn {
+  background: #1c1c1c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-end; /* Прижимаем кнопку к правому краю формы */
+  transition: background 0.2s;
+}
+
+.submitBtn:hover {
+  background: #333;
+}
+
+/* --- ПРАВАЯ КОЛОНКА: СОЦСЕТИ --- */
+.socialBlock {
+  width: 300px;
+  background: #f8f8f8;
+  border-radius: 20px;
+  padding: 30px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialTitle {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #5c5c5c;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 20px;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.socialIcon:hover {
+  transform: translateY(-3px);
+}

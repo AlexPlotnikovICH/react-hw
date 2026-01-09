@@ -1,12 +1,12 @@
-/* Общий контейнер */
+/* Общий конт*/
 .cartWrapper {
   display: flex;
   justify-content: space-between;
   gap: 40px;
 }
 .content {
-  padding: 40px; /* Отступы сверху и по бокам (как на Главной) */
-  padding-bottom: 100px; /* Большой отступ снизу до Футера */
+  padding: 40px;
+  padding-bottom: 100px;
 }
 /* --- ЛЕВАЯ КОЛОНКА (СПИСОК) --- */
 .cartItems {
@@ -59,32 +59,32 @@
 
 /* --- ПРАВАЯ КОЛОНКА (ИТОГО - КАК НА СКРИНЕ) --- */
 .totalBlock {
-  width: 300px; /* Немного шире, чтобы текст влезал */
-  background: #fafafa; /* Светло-серый фон */
-  border-radius: 20px; /* Скругление как у карточек */
+  width: 300px;
+  background: #fafafa;
+  border-radius: 20px;
   padding: 30px;
-  height: fit-content; /* Высота подстраивается под контент */
+  height: fit-content;
 }
 
 .totalTitle {
   font-size: 24px;
   font-weight: 700;
   margin: 0 0 20px 0;
-  text-align: center; /* На скрине заголовок по центру */
+  text-align: center;
 }
 
 /* Список названий товаров */
 .totalList {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Отступ между названиями */
+  gap: 15px;
   margin-bottom: 20px;
 }
 
 .totalItemName {
   font-size: 16px;
   font-weight: 400;
-  color: #5c5c5c; /* Чуть серый текст, не черный */
+  color: #5c5c5c;
   line-height: 1.4;
 }
 
@@ -92,7 +92,7 @@
 .separator {
   width: 100%;
   height: 1px;
-  background-color: #cecece; /* Серый цвет линии */
+  background-color: #cecece;
   margin-bottom: 15px;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .totalPrice {
-  font-size: 28px; /* Крупная цена */
+  font-size: 28px;
   font-weight: 700;
   color: #1c1c1c;
 }

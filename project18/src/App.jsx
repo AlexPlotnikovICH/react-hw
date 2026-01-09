@@ -13,7 +13,7 @@ function App() {
   // Функция добавления
   const onAddToCart = obj => {
     setCartItems(prev => [...prev, obj])
-  } // <--- ВОТ ЭТА СКОБКА ОЧЕНЬ ВАЖНА
+  }
 
   // Функция удаления
   const onRemoveItem = id => {

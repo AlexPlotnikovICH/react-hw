@@ -5,7 +5,6 @@ import Card from '../components/Card/Card'
 import data from '../assets/data'
 import bannerImg from '../assets/banner.png'
 
-// 1. Принимаем "рычаг" (функцию onAddToCart) от App.js
 function Home({ onAddToCart }) {
   return (
     <div className={styles.content}>
@@ -20,7 +19,6 @@ function Home({ onAddToCart }) {
             name={item.name}
             price={item.price}
             image={item.image}
-            // 2. Когда нажали плюс - отправляем ВЕСЬ объект товара (item) в App
             onClickPlus={() => onAddToCart(item)}
           />
         ))}
