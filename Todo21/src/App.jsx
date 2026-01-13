@@ -1,5 +1,6 @@
 import { Container, CssBaseline, Typography, Paper } from '@mui/material'
 import TodoForm from './components/todoForm'
+import TodoList from './components/todoList'
 
 function App() {
   return (
@@ -19,9 +20,8 @@ function App() {
           </Typography>
 
           {/* список задач */}
-          <Typography align='center' color='text.secondary'>
-            (Список задач пока пуст)
-          </Typography>
+          <Typography align='center' color='text.secondary'></Typography>
+          <TodoList />
         </Paper>
       </Container>
     </>

@@ -10,11 +10,10 @@ const todoSlice = createSlice({
   reducers: {
     // Добавление
     addTodo: (state, action) => {
-      // Redux Toolkit использует Immer, поэтому мы можем "мутировать" state напрямую
       state.items.push({
         id: Date.now(), // Уникальный ID на основе времени
-        text: action.payload, // Текст задачи придет из формы
-        isCompleted: false, // По умолчанию задача не выполнена
+        text: action.payload,
+        isCompleted: false,
       })
     },
     // Удаление
@@ -34,8 +33,6 @@ const todoSlice = createSlice({
   },
 })
 
-// Экспортируем все экшены для использования в компонентах
 export const { addTodo, deleteTodo, toggleTodo } = todoSlice.actions
 
-// Экспортируем редьюсер для store.js
 export default todoSlice.reducer
