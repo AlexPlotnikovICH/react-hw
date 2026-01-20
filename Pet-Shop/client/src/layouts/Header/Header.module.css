@@ -1,0 +1,50 @@
+.header {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 128px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #ffffff;
+  box-sizing: border-box;
+
+  /* Рамка для тест*/
+  border: 1px solid red;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+/* Ссылки */
+.link {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #0d50ff;
+}
+
+/* Логотип */
+.logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Корзина */
+.cartIcon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+  cursor: pointer;
+}
