@@ -1,0 +1,43 @@
+.banner {
+  width: 100%;
+  max-width: 1440px;
+  height: 600px;
+  margin: 0 auto;
+
+  background-image: url('../../assets/images/hero-dog.png');
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 40px;
+  padding-bottom: 80px;
+}
+
+.title {
+  font-size: 96px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 110%;
+  margin-bottom: 40px;
+  max-width: 1000px;
+}
+
+.button {
+  display: inline-block;
+  background-color: #0d50ff;
+  color: #ffffff;
+  padding: 16px 56px;
+  border-radius: 12px;
+  font-size: 20px;
+  line-height: 130%;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #003cc2;
+}

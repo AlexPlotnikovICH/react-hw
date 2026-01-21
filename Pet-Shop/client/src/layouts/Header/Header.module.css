@@ -10,9 +10,6 @@
 
   background-color: #ffffff;
   box-sizing: border-box;
-
-  /* Рамка для тест*/
-  border: 1px solid red;
 }
 
 .nav {

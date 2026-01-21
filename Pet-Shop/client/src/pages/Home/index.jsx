@@ -1,1 +1,9 @@
-export const Home = () => <div>Home Page</div>;
+import { Banner } from '../../components/Banner'
+
+export const Home = () => {
+  return (
+    <main>
+      <Banner />
+    </main>
+  )
+}
