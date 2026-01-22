@@ -1,0 +1,100 @@
+.section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  margin-top: 26px; /* Отступ от категорий  с разницей предыдущешл марджена сверху*/
+  margin-bottom: 80px;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  min-height: 486px;
+  background-color: #0d50ff;
+  border-radius: 12px;
+  padding-top: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 110%;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+  padding-bottom: 0;
+  margin-top: auto;
+}
+.image {
+  display: block;
+  max-width: 100%;
+  height: 350px;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+/* ФОРМА */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+}
+
+.input {
+  width: 100%;
+  max-height: 58px;
+  height: 60px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  padding: 0 20px;
+
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 130%;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.input::placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* "Get a discount" */
+.btn {
+  width: 100%;
+  height: 58px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn:hover {
+  background-color: #ebebeb;
+}

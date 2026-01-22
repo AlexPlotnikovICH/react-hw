@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import styles from './Categories.module.css'
 
 import foodImg from '../../assets/images/food.png'
@@ -19,6 +20,10 @@ export const Categories = () => {
     { id: 4, title: 'Toys', image: toysImg, link: '/categories/4' },
   ]
 
+  const [list] = useState(() => {
+    return [...categoriesList].sort(() => Math.random() - 0.5)
+  })
+
   return (
     <section className={styles.section}>
       <div className={styles.header}>
@@ -32,7 +37,7 @@ export const Categories = () => {
       </div>
 
       <div className={styles.list}>
-        {categoriesList.map(item => (
+        {list.map(item => (
           <Link to={item.link} key={item.id} className={styles.item}>
             <img src={item.image} alt={item.title} className={styles.image} />
             <p className={styles.categoryTitle}>{item.title}</p>
