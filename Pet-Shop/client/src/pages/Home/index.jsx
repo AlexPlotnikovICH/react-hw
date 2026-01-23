@@ -1,6 +1,7 @@
 import { Banner } from '../../components/Banner'
 import { Categories } from '../../components/Categories'
 import { Discount } from '../../components/Discount' //
+import { Sale } from '../../components/Sale'
 
 export const Home = () => {
   return (
@@ -8,6 +9,7 @@ export const Home = () => {
       <Banner />
       <Categories />
       <Discount />
+      <Sale />
     </main>
   )
 }
