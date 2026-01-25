@@ -6,83 +6,31 @@
   box-sizing: border-box;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  gap: 32px;
-}
-
 .title {
-  font-size: 64px;
-  font-weight: 700;
-  color: #000;
-  line-height: 110%;
-}
-
-.line {
-  flex-grow: 1;
-  height: 1px;
-  background-color: #dddddd;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between; /* Заголовок слева, кнопка справа */
-  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  color: #282828;
   margin-bottom: 40px;
+  text-align: left;
 }
 
-/* Кнопка "All categories" */
-.btn {
-  color: #8b8b8b;
-  font-size: 16px;
-  font-weight: 500;
-
-  background-color: transparent;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
-  padding: 8px 16px;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-.btn:hover {
-  border-color: #dddddd;
-  color: #000;
-}
-
-/* СЕТКА ТОВАРОВ */
 .list {
   display: grid;
-  /* 4 колонки(1fr) */
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
 
-.item {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* от картинки до текста */
-  cursor: pointer;
+@media (max-width: 1000px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.image {
-  width: 100%;
-  height: 316px;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.2s;
-}
-
-.item:hover .image {
-  transform: scale(1.02); /* малость увеличение при наведении */
-}
-
-.categoryTitle {
-  font-size: 20px;
-  font-weight: 500;
-  color: #000;
-  line-height: 130%;
-  text-align: center;
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 20px;
+  }
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

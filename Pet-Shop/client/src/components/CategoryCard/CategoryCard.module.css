@@ -1,0 +1,27 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* от картинки до текста */
+  cursor: pointer;
+  text-decoration: none; /* Убираем подчеркивание ссылки */
+}
+
+.image {
+  width: 100%;
+  height: 316px; /* Твоя фиксированная высота */
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.card:hover .image {
+  transform: scale(1.02);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  line-height: 130%;
+  text-align: center;
+}

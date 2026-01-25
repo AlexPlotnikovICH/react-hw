@@ -1,1 +1,1 @@
-export const Cart = () => <div>Cart Page</div>;
+export const Cart = () => <div>Cart Page</div>
