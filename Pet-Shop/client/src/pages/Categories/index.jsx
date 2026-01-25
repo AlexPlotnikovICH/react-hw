@@ -4,6 +4,8 @@ import { fetchCategories } from '../../redux/slices/categoriesSlice'
 import { CategoryCard } from '../../components/CategoryCard'
 import styles from './Categories.module.css'
 
+import { Breadcrumbs } from '../../components/Breadcrumbs'
+
 export const CategoriesPage = () => {
   const dispatch = useDispatch()
   const categories = useSelector(state => state.categories.list)
@@ -15,7 +17,7 @@ export const CategoriesPage = () => {
   return (
     // класс контейнера страницы
     <section className={styles.section}>
-      <h2 className={styles.title}>Categories</h2>
+      <Breadcrumbs />
 
       {/* класс для сетки */}
       <div className={styles.list}>

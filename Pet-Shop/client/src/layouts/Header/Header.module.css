@@ -3,11 +3,10 @@
   max-width: 1440px;
   margin: 0 auto;
   height: 128px;
-  padding: 0 40px;
+  padding: 0 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   background-color: #ffffff;
   box-sizing: border-box;
 }
@@ -49,4 +48,7 @@
   object-fit: contain;
   display: block;
   cursor: pointer;
+}
+.headerBorder {
+  border-bottom: 1px solid #e2e2e2;
 }

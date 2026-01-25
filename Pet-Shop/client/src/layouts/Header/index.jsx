@@ -1,44 +1,43 @@
-import { Link, NavLink } from 'react-router-dom'
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import styles from './Header.module.css'
-
-import logoIcon from '../../assets/icons/logo.svg'
+import logo from '../../assets/icons/logo.svg'
 import cartIcon from '../../assets/icons/bagCart.svg'
-import cartFullIcon from '../../assets/icons/bag_filled.svg'
 
 export const Header = () => {
-  const navLinks = [
-    { label: 'Main Page', path: '/' },
-    { label: 'Categories', path: '/categories' },
-    { label: 'All products', path: '/products' },
-    { label: 'All sales', path: '/sales' },
-  ]
-  // поменять на 1 что б проверить сумку
-  const cartCount = 0
+  const location = useLocation()
+
+  // Логика: если не главная, добавляем полоску
+  const headerClassName =
+    location.pathname === '/'
+      ? styles.header
+      : `${styles.header} ${styles.headerBorder}`
 
   return (
-    <header className={styles.header}>
+    <header className={headerClassName}>
       <Link to='/' className={styles.logo}>
-        <img src={logoIcon} alt='Pet Shop Logo' />
+        <img src={logo} alt='Logo' />
       </Link>
 
       <nav className={styles.nav}>
-        {navLinks.map(link => (
-          <NavLink key={link.path} to={link.path} className={styles.link}>
-            {link.label}
-          </NavLink>
-        ))}
+        <Link to='/' className={styles.link}>
+          Main Page
+        </Link>
+
+        <Link to='/categories' className={styles.link}>
+          Categories
+        </Link>
+        <Link to='/products' className={styles.link}>
+          All products
+        </Link>
+        <Link to='/sales' className={styles.link}>
+          All sales
+        </Link>
       </nav>
 
-      <div className={styles.actions}>
-        <Link to='/cart'>
-          {/* 👇 смена иконки */}
-          <img
-            src={cartCount > 0 ? cartFullIcon : cartIcon}
-            alt='Cart'
-            className={styles.cartIcon}
-          />
-        </Link>
-      </div>
+      <Link to='/cart' className={styles.cartIcon}>
+        <img src={cartIcon} alt='Cart' />
+      </Link>
     </header>
   )
 }

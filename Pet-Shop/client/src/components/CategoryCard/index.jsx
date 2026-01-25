@@ -2,17 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './CategoryCard.module.css'
 
-// Компонент принимает данные снаружи.
-// image - ссылка на картинку с сервера
-export const CategoryCard = ({ id, title, image }) => {
+export const CategoryCard = ({ id, title, image, link }) => {
+  const targetLink = link ? link : `/categories/${id}`
+
   return (
-    <Link to={`/categories/${id}`} className={styles.card}>
+    <Link to={targetLink} className={styles.card}>
       <img
         src={`http://localhost:3333${image}`}
         alt={title}
         className={styles.image}
       />
-      <p className={styles.title}>{title}</p>
+      <h3 className={styles.title}>{title}</h3>
     </Link>
   )
 }
