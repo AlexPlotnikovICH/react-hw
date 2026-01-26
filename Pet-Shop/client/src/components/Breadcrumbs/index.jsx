@@ -2,29 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Breadcrumbs.module.css'
 
-export const Breadcrumbs = ({ title }) => {
+// Добавляем = [] — это защита от пустоты
+export const Breadcrumbs = ({ links = [] }) => {
   return (
     <div className={styles.container}>
-      <Link to='/' className={styles.btn}>
-        Main Page
-      </Link>
-
-      <div className={styles.line}></div>
-
-      {title ? (
-        <Link to='/categories' className={styles.btn}>
-          Categories
-        </Link>
-      ) : (
-        <div className={`${styles.btn} ${styles.active}`}>Categories</div>
-      )}
-
-      {title && (
-        <>
-          <div className={styles.line}></div>
-          <div className={`${styles.btn} ${styles.active}`}>{title}</div>
-        </>
-      )}
+      {links.map((item, index) => (
+        <React.Fragment key={index}>
+          {index < links.length - 1 ? (
+            <Link to={item.url} className={styles.btn}>
+              {item.label}
+            </Link>
+          ) : (
+            <div className={`${styles.btn} ${styles.active}`}>{item.label}</div>
+          )}
+          {index < links.length - 1 && <div className={styles.line}></div>}
+        </React.Fragment>
+      ))}
     </div>
   )
 }

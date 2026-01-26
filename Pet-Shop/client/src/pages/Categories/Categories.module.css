@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1360px;
   margin: 0 auto;
-  padding: 40px 0px 40px 0px;
+  padding: 0px 0px 40px 0px;
   box-sizing: border-box;
 }
 
@@ -16,7 +16,6 @@
 }
 
 .list {
-  padding: 110px 0px 0px 0px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;

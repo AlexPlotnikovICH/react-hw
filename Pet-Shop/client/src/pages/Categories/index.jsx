@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux' // ВОТ ЭТА СТРОКА НУЖНА
 import { fetchCategories } from '../../redux/slices/categoriesSlice'
 import { CategoryCard } from '../../components/CategoryCard'
-import styles from './Categories.module.css'
-
 import { Breadcrumbs } from '../../components/Breadcrumbs'
+import styles from './Categories.module.css'
 
 export const CategoriesPage = () => {
   const dispatch = useDispatch()
@@ -14,11 +13,16 @@ export const CategoriesPage = () => {
     dispatch(fetchCategories())
   }, [dispatch])
 
-  return (
-    <section className={styles.section}>
-      <Breadcrumbs />
+  const categoriesLinks = [
+    { label: 'Main page', url: '/' },
+    { label: 'Categories', url: '/categories' },
+  ]
 
-      {/* класс для сетки */}
+  return (
+    <section className='container'>
+      {' '}
+      <Breadcrumbs links={categoriesLinks} />
+      <h1 className={styles.title}>Categories</h1>
       <div className={styles.list}>
         {categories.map(item => (
           <CategoryCard
