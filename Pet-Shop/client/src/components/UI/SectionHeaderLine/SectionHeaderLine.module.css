@@ -1,7 +1,7 @@
 .sectionHeader {
   display: flex;
   align-items: center;
-  gap: 0; /* Линия касается кнопки */
+  gap: 0;
   margin-bottom: 40px;
 }
 
@@ -12,7 +12,7 @@
   color: #282828;
   line-height: 110%;
   margin: 0;
-  margin-right: 32px; /* Отступ до линии */
+  margin-right: 32px;
   white-space: nowrap;
 }
 

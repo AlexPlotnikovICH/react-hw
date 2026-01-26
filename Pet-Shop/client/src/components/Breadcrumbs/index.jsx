@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Breadcrumbs.module.css'
 
-// Добавляем = [] — это защита от пустоты
+//  [] — это защита от пустоты
 export const Breadcrumbs = ({ links = [] }) => {
   return (
     <div className={styles.container}>

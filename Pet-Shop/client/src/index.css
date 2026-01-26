@@ -28,8 +28,8 @@ img {
   display: block;
 }
 .container {
-  max-width: 1440px; /* Ширина как в макете */
-  margin: 0 auto; /* Центрирование */
-  padding: 0 40px; /* Боковые отступы, чтобы контент не лип к краям */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
   box-sizing: border-box;
 }

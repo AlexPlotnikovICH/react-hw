@@ -11,40 +11,53 @@ export const Category = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
 
-  // Достаем данные из Redux
+  // 1. Получаем данные из Redux
   const products = useSelector(state => state.categories.categoryProducts)
   const categoryTitle = useSelector(state => state.categories.categoryTitle)
 
   useEffect(() => {
+    // Запрашиваем данные конкретной категории при загрузке или смене id
     dispatch(fetchCategory(id))
   }, [dispatch, id])
 
-  return (
-    <div className={styles.section}>
-      {/* 1. Хлебные крошки. Передаем title, чтобы было: Main -> Categories -> Toys */}
-      <Breadcrumbs title={categoryTitle} />
+  // 2. Формируем динамический путь для хлебных крошек
+  const categoryLinks = [
+    { label: 'Main page', url: '/' },
+    { label: 'Categories', url: '/categories' },
+    { label: categoryTitle || 'Loading...', url: `/categories/${id}` },
+  ]
 
-      {/* 2. Заголовок категории (Toys, Dry Food и т.д.) */}
+  return (
+    // Используем глобальный класс container для центрирования
+    <main className='container'>
+      {/* Передаем массив ссылок в универсальный компонент */}
+      <Breadcrumbs links={categoryLinks} />
+
+      {/* Заголовок категории из бэкенда */}
       <h2 className={styles.title}>{categoryTitle}</h2>
 
-      {/* 3. Тут будет фильтрация (FilterBar), пока оставим место */}
+      {/* Блок для будущих фильтров */}
       <div className={styles.filters}>
         {/* <FilterBar /> — добавим позже */}
       </div>
 
-      {/* 4. Сетка товаров */}
+      {/* Сетка товаров данной категории */}
       <div className={styles.list}>
-        {products.map(item => (
-          <ProductCard
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            price={item.price}
-            discont_price={item.discont_price}
-            image={item.image}
-          />
-        ))}
+        {products && products.length > 0 ? (
+          products.map(item => (
+            <ProductCard
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              price={item.price}
+              discont_price={item.discont_price}
+              image={item.image}
+            />
+          ))
+        ) : (
+          <p>Loading products...</p>
+        )}
       </div>
-    </div>
+    </main>
   )
 }

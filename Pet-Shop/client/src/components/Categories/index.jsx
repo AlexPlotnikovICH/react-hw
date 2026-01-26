@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// Link нам тут больше не нужен, он внутри компонента
 import styles from './Categories.module.css'
 import { CategoryCard } from '../CategoryCard'
 import { fetchCategories } from '../../redux/slices/categoriesSlice'
@@ -31,10 +30,10 @@ export const Categories = () => {
 
   return (
     <section className={styles.section}>
-      <SectionHeaderLine 
-        title="Categories" 
-        btnText="All categories" 
-        btnLink="/categories" 
+      <SectionHeaderLine
+        title='Categories'
+        btnText='All categories'
+        btnLink='/categories'
       />
 
       <div className={styles.list}>
