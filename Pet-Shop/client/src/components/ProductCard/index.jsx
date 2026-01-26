@@ -1,44 +1,52 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom' // Используем хук вместо Link
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../redux/slices/cartSlice'
 import styles from './ProductCard.module.css'
-import { Button } from '../UI/Button'
 
 export const ProductCard = ({ id, title, price, discont_price, image }) => {
-  const BASE_URL = 'http://localhost:3333'
+  const dispatch = useDispatch()
+  const navigate = useNavigate() // Хук для навигации
+  const imageUrl = `http://localhost:3333${image}`
 
-  //  Всчитаем процент скидки
   const discountPercent = discont_price
     ? Math.round(((price - discont_price) / price) * 100)
     : 0
 
+  // Клик по всей карточке -> переходим на страницу товара
+  const handleCardClick = () => {
+    navigate(`/products/${id}`)
+  }
+
+  // Клик по кнопке -> добавляем в корзину (и НЕ переходим на страницу)
+  const handleAddToCart = e => {
+    e.stopPropagation() // Останавливаем всплытие, чтобы не сработал клик по карточке
+    dispatch(addToCart({ id, title, price, discont_price, image, count: 1 }))
+    console.log('Added from card:', title)
+  }
+
   return (
-    <div className={styles.card}>
+    // Вернули DIV, стили снова работают правильно
+    <div className={styles.card} onClick={handleCardClick}>
       <div className={styles.imageWrapper}>
-        <img src={`${BASE_URL}${image}`} alt={title} className={styles.image} />
+        <img src={imageUrl} alt={title} className={styles.image} />
 
         {discont_price && (
           <span className={styles.badge}>-{discountPercent}%</span>
         )}
 
-        <div className={styles.addToCart}>
-          <Button variant='blue' size='large'>
-            Add to cart
-          </Button>
-        </div>
+        {/* Кнопка внутри div валидна и не ломает верстку */}
+        <button className={styles.addToCart} onClick={handleAddToCart}>
+          Add to Cart
+        </button>
       </div>
 
       <div className={styles.info}>
         <h3 className={styles.title}>{title}</h3>
 
         <div className={styles.prices}>
-          {discont_price ? (
-            /* Если СКИДКА ЕСТЬ: показываем новую цену + старую зачеркнутую */
-            <>
-              <span className={styles.price}>${discont_price}</span>
-              <span className={styles.oldPrice}>${price}</span>
-            </>
-          ) : (
-            /* Если СКИДКИ НЕТ: показываем просто цену */
-            <span className={styles.price}>${price}</span>
-          )}
+          <span className={styles.price}>${discont_price ?? price}</span>
+          {discont_price && <span className={styles.oldPrice}>${price}</span>}
         </div>
       </div>
     </div>

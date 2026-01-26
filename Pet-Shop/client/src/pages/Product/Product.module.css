@@ -1,0 +1,276 @@
+/* --- ГЛАВНАЯ ОБЕРТКА (СЕТКА) --- */
+.productWrapper {
+  display: grid;
+  /* Делим экран на 2 колонки: левая (картинка) занимает 1.4 части, правая (текст) — 1 часть */
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+/* --- КОНТЕЙНЕР ДЛЯ КАРТИНКИ (ЛЕВАЯ КОЛОНКА) --- */
+/* --- ГАЛЕРЕЯ (Общий блок левой части) --- */
+.imageBox {
+  display: flex; /* Включаем флекс, чтобы поставить миниатюры и главное фото рядом */
+  gap: 30px; /* Отступ между колонкой миниатюр и большим фото */
+  height: 572px;
+}
+
+/* --- КОЛОНКА МИНИАТЮР --- */
+.thumbnails {
+  display: flex;
+  flex-direction: column; /* Ставим миниатюры вертикально */
+  gap: 20px; /* Отступы между миниатюрами */
+}
+
+.thumbItem {
+  width: 150px; /* Фиксированная ширина миниатюры */
+  height: 115px; /* Фиксированная высота */
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden; /* Чтобы картинка не вылезала за скругления */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Легкая тень как на макете */
+}
+
+.thumbItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Вписываем картинку */
+  background: #fff; /* Белый фон на случай прозрачных PNG */
+}
+
+/* --- ГЛАВНОЕ БОЛЬШОЕ ФОТО --- */
+.mainImage {
+  flex-grow: 1; /* Занимает всё оставшееся место */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mainImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .thumbnails {
+    display: none;
+  }
+}
+
+/* --- САМА КАРТИНКА --- */
+.imageBox img {
+  /* Картинка растягивается на всю ширину контейнера */
+  width: 100%;
+  /* И на всю высоту контейнера */
+  height: 100%;
+  /* Самое важное: картинка не сплющивается, а вписывается в рамки с сохранением пропорций */
+  object-fit: contain;
+  /* Скругляем углы картинки на 12px */
+  border-radius: 12px;
+}
+
+/* --- КОНТЕЙНЕР ДЛЯ ТЕКСТА (ПРАВАЯ КОЛОНКА) --- */
+.infoBox {
+  /* Используем Flexbox, чтобы выстроить элементы (Заголовок, Цена, Кнопки) в столбик */
+  display: flex;
+  /* Направление оси — сверху вниз (колонка) */
+  flex-direction: column;
+  /* Минимальная высота блока, чтобы он визуально соответствовал картинке */
+  min-height: 574px;
+}
+
+/* --- ЗАГОЛОВОК ТОВАРА --- */
+.title {
+  /* Основной шрифт сайта */
+  font-family: 'Montserrat', sans-serif;
+  /* Жирное начертание */
+  font-weight: 700;
+  /* Размер шрифта 40px (чуть меньше, чем на главной) */
+  font-size: 40px;
+  /* Темно-серый цвет текста */
+  color: #282828;
+  /* Убираем внешние отступы, так как управляем ими через соседние блоки */
+  margin: 0;
+}
+
+/* --- БЛОК С ЦЕНАМИ --- */
+.priceBlock {
+  /* Выстраиваем старую и новую цену в одну строку */
+  display: flex;
+  /* Выравниваем их по нижней линии шрифта (чтобы "сидели" на одной строке) */
+  align-items: flex-end;
+  /* Расстояние между новой и старой ценой */
+  gap: 20px;
+  /* Отступ сверху от заголовка */
+  margin-top: 20px;
+  /* Отступ снизу до кнопок */
+  margin-bottom: 20px;
+}
+
+/* --- АКТУАЛЬНАЯ ЦЕНА (БОЛЬШАЯ) --- */
+.currentPrice {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #282828;
+}
+
+/* --- СТАРАЯ ЦЕНА (ЗАЧЕРКНУТАЯ) --- */
+.oldPrice {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  /* Зачеркиваем текст линией */
+  text-decoration-line: line-through;
+  /* Цвет серый, чтобы показать неактивность */
+  color: #8b8b8b;
+  /* Небольшой отступ снизу, чтобы визуально выровнять с большой цифрой */
+  margin-bottom: 8px;
+}
+
+/* --- БЛОК КНОПОК (СЧЕТЧИК + ADD TO CART) --- */
+.actionButtons {
+  /* Выстраиваем кнопки в ряд */
+  display: flex;
+  /* Расстояние между счетчиком и кнопкой "В корзину" */
+  gap: 16px;
+  /* Отступ снизу до описания */
+  margin-bottom: 30px;
+}
+
+/* --- КНОПКА "ADD TO CART" --- */
+.addToCartBtn {
+  /* Синий цвет фона */
+  background-color: #0d50ff;
+  /* Белый текст */
+  color: white;
+  /* Убираем стандартную рамку кнопки */
+  border: none;
+  /* Скругляем углы */
+  border-radius: 8px;
+  /* Внутренние отступы: 16px сверху/снизу, 32px слева/справа */
+  padding: 16px 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  /* Курсор превращается в "руку" при наведении */
+  cursor: pointer;
+  /* Плавное изменение цвета при наведении */
+  transition: background 0.2s;
+}
+
+/* Эффект при наведении на кнопку */
+.addToCartBtn:hover {
+  /* Цвет становится чуть темнее */
+  background-color: #003cc5;
+}
+
+/* --- СЧЕТЧИК (- 1 +) --- */
+.counter {
+  /* Выстраиваем минус, цифру и плюс в ряд */
+  display: flex;
+  /* Центрируем их по вертикали */
+  align-items: center;
+  /* Расстояние между элементами внутри счетчика */
+  gap: 10px;
+  /* Тонкая серая рамка */
+  border: 1px solid #ddd;
+  /* Скругление углов */
+  border-radius: 8px;
+  /* Внутренние отступы слева и справа */
+  padding: 0 10px;
+  /* Фиксированная высота 52px (чтобы совпадала с высотой синей кнопки) */
+  height: 52px;
+}
+
+/* Кнопки "+" и "-" внутри счетчика */
+.counter button {
+  /* Убираем фон */
+  background: none;
+  /* Убираем рамку */
+  border: none;
+  /* Размер символов */
+  font-size: 20px;
+  cursor: pointer;
+  color: #8b8b8b;
+}
+
+/* --- ОПИСАНИЕ ТОВАРА --- */
+.description h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  /* Отступ от заголовка "Description" до текста */
+  margin-bottom: 10px;
+}
+
+/* Базовые настройки текста */
+.description p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #282828;
+  max-width: 500px;
+  /* Плавность раскрытия (работает лучше с max-height, но с line-clamp просто переключится) */
+  transition: all 0.3s ease;
+}
+
+/* СОСТОЯНИЕ: Свернуто */
+.textCollapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 10; /* Показывать только 3 строки */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Добавит троеточие ... в конце */
+}
+
+/* СОСТОЯНИЕ: Развернуто */
+.textExpanded {
+  display: block; /* Показываем всё как обычно */
+}
+
+/* Стили кнопки Read more */
+.readMore {
+  margin-top: 0px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600; /* Жирнее, чтобы было видно, что это кнопка */
+  text-decoration: underline;
+  cursor: pointer;
+  color: #282828;
+  width: fit-content; /* Чтобы кликалось только по слову */
+}
+
+.readMore:hover {
+  color: #0d50ff; /* Синий при наведении */
+}
+
+/* --- ССЫЛКА READ MORE --- */
+.readMore {
+  margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  /* Подчеркивание текста */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* --- МОБИЛЬНАЯ ВЕРСИЯ (АДАПТИВ) --- */
+@media (max-width: 900px) {
+  .productWrapper {
+    /* Переключаем сетку на 1 колонку (блоки встают друг под другом) */
+    grid-template-columns: 1fr;
+    /* Высота становится автоматической */
+    height: auto;
+  }
+  .imageBox {
+    /* Высота картинки подстраивается */
+    height: auto;
+    /* Но не больше 500px, чтобы не занимать весь экран телефона */
+    max-height: 500px;
+  }
+}
