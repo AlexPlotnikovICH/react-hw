@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-
+// Link нам тут больше не нужен, он внутри компонента
 import styles from './Categories.module.css'
 import { CategoryCard } from '../CategoryCard'
 import { fetchCategories } from '../../redux/slices/categoriesSlice'
+import { SectionHeaderLine } from '../UI/SectionHeaderLine'
 
 export const Categories = () => {
   const dispatch = useDispatch()
-
   const categories = useSelector(state => state.categories.list)
-
   const [list, setList] = useState([])
 
   useEffect(() => {
@@ -33,10 +31,11 @@ export const Categories = () => {
 
   return (
     <section className={styles.section}>
-      <div className={styles.header}>
-        <h2 className={styles.title}>Categories</h2>
-        <div className={styles.line}></div>
-      </div>
+      <SectionHeaderLine 
+        title="Categories" 
+        btnText="All categories" 
+        btnLink="/categories" 
+      />
 
       <div className={styles.list}>
         {list.map(item => (

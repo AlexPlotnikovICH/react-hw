@@ -6,46 +6,6 @@
   box-sizing: border-box;
 }
 
-/* --- ШАПКА --- */
-.header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  gap: 32px;
-}
-
-.title {
-  font-size: 64px;
-  font-weight: 700;
-  color: #000;
-  line-height: 110%;
-}
-
-.line {
-  flex-grow: 1;
-  height: 1px;
-  background-color: #dddddd;
-}
-
-/* --- кнопка all sales --- */
-.btn {
-  color: #8b8b8b;
-  font-size: 16px;
-  font-weight: 500;
-  background-color: transparent;
-  border: 1px solid #dddddd;
-  border-radius: 6px;
-  padding: 8px 16px;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  line-height: 126%;
-}
-
-.btn:hover {
-  border-color: #8b8b8b;
-  color: #000;
-}
 
 /* --- СЕТКА ТОВАРОВ --- */
 .list {
