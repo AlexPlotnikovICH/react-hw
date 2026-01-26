@@ -1,14 +1,14 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* от картинки до текста */
+  gap: 16px; 
   cursor: pointer;
-  text-decoration: none; /* Убираем подчеркивание ссылки */
+  text-decoration: none; 
 }
 
 .image {
   width: 100%;
-  height: 316px; /* Твоя фиксированная высота */
+  height: 316px; 
   object-fit: cover;
   border-radius: 12px;
   transition: transform 0.2s;

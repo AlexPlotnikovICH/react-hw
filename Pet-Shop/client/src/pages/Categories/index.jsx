@@ -15,7 +15,6 @@ export const CategoriesPage = () => {
   }, [dispatch])
 
   return (
-    // класс контейнера страницы
     <section className={styles.section}>
       <Breadcrumbs />
 

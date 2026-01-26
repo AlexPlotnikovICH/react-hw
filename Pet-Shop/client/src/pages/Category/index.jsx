@@ -2,49 +2,47 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCategory } from '../../redux/slices/categoriesSlice'
+import styles from './Category.module.css'
+
+import { ProductCard } from '../../components/ProductCard'
+import { Breadcrumbs } from '../../components/Breadcrumbs'
 
 export const Category = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
 
-  // 1. Достаем товары и заголовок категории из Redux
+  // Достаем данные из Redux
   const products = useSelector(state => state.categories.categoryProducts)
   const categoryTitle = useSelector(state => state.categories.categoryTitle)
 
-  // 2. Как только зашли на страницу — отправляем запрос за данными
   useEffect(() => {
     dispatch(fetchCategory(id))
   }, [dispatch, id])
 
   return (
-    <div style={{ maxWidth: '1160px', margin: '0 auto', padding: '40px' }}>
-      {/* Заголовок категории */}
-      <h1>{categoryTitle}</h1>
+    <div className={styles.section}>
+      {/* 1. Хлебные крошки. Передаем title, чтобы было: Main -> Categories -> Toys */}
+      <Breadcrumbs title={categoryTitle} />
 
-      {/* Временная сетка для проверки данных */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '20px',
-          marginTop: '30px',
-        }}
-      >
-        {products.map(product => (
-          <div
-            key={product.id}
-            style={{ border: '1px solid #ddd', padding: '10px' }}
-          >
-            {/* Картинка */}
-            <img
-              src={`http://localhost:3333${product.image}`}
-              alt={product.title}
-              style={{ width: '100px' }}
-            />
-            {/* Название и цена */}
-            <p>{product.title}</p>
-            <b>${product.price}</b>
-          </div>
+      {/* 2. Заголовок категории (Toys, Dry Food и т.д.) */}
+      <h2 className={styles.title}>{categoryTitle}</h2>
+
+      {/* 3. Тут будет фильтрация (FilterBar), пока оставим место */}
+      <div className={styles.filters}>
+        {/* <FilterBar /> — добавим позже */}
+      </div>
+
+      {/* 4. Сетка товаров */}
+      <div className={styles.list}>
+        {products.map(item => (
+          <ProductCard
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            price={item.price}
+            discont_price={item.discont_price}
+            image={item.image}
+          />
         ))}
       </div>
     </div>
