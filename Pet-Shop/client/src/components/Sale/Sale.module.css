@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-
 /* --- СЕТКА ТОВАРОВ --- */
 .list {
   display: grid;
