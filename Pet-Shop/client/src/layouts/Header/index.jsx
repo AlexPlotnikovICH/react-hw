@@ -1,18 +1,15 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { useSelector } from 'react-redux' // 1. Импорт хука для данных
+import { useSelector } from 'react-redux'
 import styles from './Header.module.css'
 import logo from '../../assets/icons/logo.svg'
-import cartEmpty from '../../assets/icons/bagCart.svg' // Пустая корзина
-import cartFilled from '../../assets/icons/bag_filled.svg' // Полная корзина
+import cartIcon from '../../assets/icons/bagCart.svg'
 
 export const Header = () => {
   const location = useLocation()
-
-  // 2. Достаем список товаров из Redux
   const cartList = useSelector(state => state.cart.list)
 
-  // 3. Считаем общее количество штук (чтобы иконка загоралась даже от 1 товара)
+  //логика подсчета
   const totalCount = cartList.reduce((sum, item) => sum + item.count, 0)
 
   const headerClassName =
@@ -41,8 +38,13 @@ export const Header = () => {
         </Link>
       </nav>
 
-      <Link to='/cart' className={styles.cartIcon}>
-        <img src={totalCount > 0 ? cartFilled : cartEmpty} alt='Cart' />
+      {/* КОРЗИНА */}
+      <Link to='/cart' className={styles.cartIconWrapper}>
+        <img src={cartIcon} alt='Cart' className={styles.cartIconImg} />
+        {/* Если товаров больше 0, показываем кружок с цифрой */}
+        {totalCount > 0 && (
+          <span className={styles.cartCount}>{totalCount}</span>
+        )}
       </Link>
     </header>
   )

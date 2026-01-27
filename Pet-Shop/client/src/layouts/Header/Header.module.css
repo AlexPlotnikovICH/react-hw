@@ -42,13 +42,37 @@
 }
 
 /* Корзина */
-.cartIcon {
+.cartIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 48px;
   height: 48px;
-  object-fit: contain;
-  display: block;
   cursor: pointer;
 }
-.headerBorder {
-  border-bottom: 1px solid #e2e2e2;
+
+/* Сама картинка сумки */
+.cartIconImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* счетчик */
+.cartCount {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-color: #0d50ff;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
