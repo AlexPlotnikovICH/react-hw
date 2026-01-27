@@ -1,8 +1,7 @@
+import { Box } from '@mui/material'
 import styles from './Footer.module.css'
-
 import instagramIcon from '../../assets/icons/ic-instagram.svg'
 import whatsappIcon from '../../assets/icons/ic-whatsapp.svg'
-import mapImg from '../../assets/images/map.png'
 
 export const Footer = () => {
   return (
@@ -52,10 +51,26 @@ export const Footer = () => {
         </div>
       </div>
 
-      {/* Блок карты */}
-      <div className={styles.mapWrapper}>
-        <img src={mapImg} alt='Map' className={styles.mapImg} />
-      </div>
+      {/* Блок карты через Material UI */}
+      <Box
+        sx={{
+          mt: '32px',
+          width: '100%',
+          height: { xs: '300px', md: '350px' },
+          borderRadius: '12px',
+          overflow: 'hidden',
+          bgcolor: 'grey.200',
+        }}
+      >
+        <iframe
+          title='Map: Wallstraße 9–13, Berlin'
+          src='https://www.openstreetmap.org/export/embed.html?bbox=13.4005,52.5091,13.4085,52.5131&layer=mapnik&marker=52.511116,13.404523'
+          width='100%'
+          height='100%'
+          style={{ border: 0 }}
+          loading='lazy'
+        />
+      </Box>
     </footer>
   )
 }
