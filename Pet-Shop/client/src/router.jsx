@@ -6,8 +6,8 @@ import { Category } from './pages/Category'
 import { AllProductsPage } from './pages/AllProductsPage'
 import { Product } from './pages/Product'
 import { AllSalesPage } from './pages/AllSalesPage'
-import { NotFound } from './pages/NotFound'
 import { CartPage } from './pages/CartPage'
+import { NotFound } from './pages/NotFound'
 
 export const Router = () => {
   return (
