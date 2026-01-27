@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from '../../redux/slices/productsSlice'
 import { fetchCategories } from '../../redux/slices/categoriesSlice'
-import { addToCart } from '../../redux/slices/cartSlice' // 1. Импорт экшена корзины
+import { AddToCartBtn } from '../../components/UI/AddToCartBtn' // Импорт нашей новой кнопки
 import { Breadcrumbs } from '../../components/Breadcrumbs'
 import styles from './Product.module.css'
 
@@ -19,31 +19,21 @@ export const Product = () => {
 
   // Локальные состояния
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false)
-  const [count, setCount] = useState(1) // 2. Состояние счетчика (по умолчанию 1 шт)
+  const [count, setCount] = useState(1) // Счетчик для количества
 
   useEffect(() => {
     if (!product) dispatch(fetchProducts())
     if (categories.length === 0) dispatch(fetchCategories())
   }, [dispatch, product, categories.length])
 
-  // --- ЛОГИКА КНОПОК ---
+  // --- ЛОГИКА СЧЕТЧИКА ---
 
-  // Уменьшить количество (не меньше 1)
   const handleDecrement = () => {
     setCount(prev => (prev > 1 ? prev - 1 : 1))
   }
 
-  // Увеличить количество
   const handleIncrement = () => {
     setCount(prev => prev + 1)
-  }
-
-  // Добавить в корзину
-  const handleAddToCart = () => {
-    // Отправляем товар + текущее количество "count"
-    dispatch(addToCart({ ...product, count }))
-    // Можно добавить alert или toast, что товар добавлен
-    console.log('Added to cart:', product.title, count, 'pcs')
   }
 
   // --- РЕНДЕР ---
@@ -105,16 +95,18 @@ export const Product = () => {
           </div>
 
           <div className={styles.actionButtons}>
-            {/* 3. Привязываем логику к кнопкам */}
             <div className={styles.counter}>
               <button onClick={handleDecrement}>-</button>
               <span>{count}</span>
               <button onClick={handleIncrement}>+</button>
             </div>
 
-            <button onClick={handleAddToCart} className={styles.addToCartBtn}>
-              Add to cart
-            </button>
+            {/* ИСПОЛЬЗУЕМ НОВУЮ КНОПКУ */}
+            <AddToCartBtn
+              product={product}
+              count={count}
+              className={styles.addToCartBtn} // Передаем стили для размеров
+            />
           </div>
 
           <div className={styles.description}>

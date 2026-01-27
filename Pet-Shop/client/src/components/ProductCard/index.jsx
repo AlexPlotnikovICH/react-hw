@@ -1,32 +1,24 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom' // Используем хук вместо Link
-import { useDispatch } from 'react-redux'
-import { addToCart } from '../../redux/slices/cartSlice'
+import { useNavigate } from 'react-router-dom'
+import { AddToCartBtn } from '../UI/AddToCartBtn'
 import styles from './ProductCard.module.css'
 
 export const ProductCard = ({ id, title, price, discont_price, image }) => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate() // Хук для навигации
+  const navigate = useNavigate()
   const imageUrl = `http://localhost:3333${image}`
 
   const discountPercent = discont_price
     ? Math.round(((price - discont_price) / price) * 100)
     : 0
 
-  // Клик по всей карточке -> переходим на страницу товара
   const handleCardClick = () => {
     navigate(`/products/${id}`)
   }
 
-  // Клик по кнопке -> добавляем в корзину (и НЕ переходим на страницу)
-  const handleAddToCart = e => {
-    e.stopPropagation() // Останавливаем всплытие, чтобы не сработал клик по карточке
-    dispatch(addToCart({ id, title, price, discont_price, image, count: 1 }))
-    console.log('Added from card:', title)
-  }
+  // Данные для кнопки
+  const productData = { id, title, price, discont_price, image }
 
   return (
-    // Вернули DIV, стили снова работают правильно
     <div className={styles.card} onClick={handleCardClick}>
       <div className={styles.imageWrapper}>
         <img src={imageUrl} alt={title} className={styles.image} />
@@ -35,10 +27,14 @@ export const ProductCard = ({ id, title, price, discont_price, image }) => {
           <span className={styles.badge}>-{discountPercent}%</span>
         )}
 
-        {/* Кнопка внутри div валидна и не ломает верстку */}
-        <button className={styles.addToCart} onClick={handleAddToCart}>
-          Add to Cart
-        </button>
+        {/* --- Обертка для позиционирования --- */}
+        <div className={styles.overlay}>
+          <AddToCartBtn
+            product={productData}
+            stopPropagation={true}
+            className={styles.cartBtn}
+          />
+        </div>
       </div>
 
       <div className={styles.info}>

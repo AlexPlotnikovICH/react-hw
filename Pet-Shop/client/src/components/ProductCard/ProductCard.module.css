@@ -1,138 +1,110 @@
+/* --- ОСНОВНОЙ КОНТЕЙНЕР --- */
 .card {
   width: 100%;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 12px;
-  padding: 32px;
-  box-sizing: border-box;
+  max-width: 380px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
   position: relative;
-  transition: box-shadow 0.3s ease;
+  cursor: pointer;
   overflow: hidden;
-  text-decoration: none;
-  color: inherit;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
-.card:hover {
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-/* Обертка для картинки */
+/* --- ОБЕРТКА КАРТИНКИ --- */
 .imageWrapper {
-  width: 100%;
-  height: 316px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  width: 100%;
+  height: 284px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* картинка */
 .image {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
+/* --- СКИДКА (BADGE) --- */
 .badge {
   position: absolute;
   top: 16px;
   right: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 68px;
-  height: 34px;
   background-color: #0d50ff;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 500;
-  border-radius: 6px;
-  z-index: 2;
-  padding: 0;
-}
-
-/* Кнопка "В корзину" (скрыта по умолчанию) */
-.addToCart {
-  /* --- ПОЗИЦИЯ И АНИМАЦИЯ (как было) --- */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  z-index: 3;
-
-  /* --- ВНЕШНИЙ ВИД (НОВОЕ) --- */
-  height: 48px; /* Высота кнопки */
-  background-color: #0d50ff; /* Тот самый синий цвет */
-  color: white; /* Белый текст */
-  border: none; /* Убираем серую рамку "Windows 97" */
-  border-radius: 8px; /* Скругленные углы */
-  font-family: 'Montserrat', sans-serif;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
   font-weight: 600;
-  font-size: 16px;
-  cursor: pointer; /* Курсор-рука при наведении */
-
-  /* Дополнительно: чтобы текст был ровно по центру */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 2;
 }
 
-/* Эффект при наведении на саму кнопку (сделаем чуть темнее) */
-.addToCart:hover {
-  background-color: #003cc5;
+/* --- ВСПЛЫВАЮЩАЯ КНОПКА --- */
+.overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 10;
+
+  /* Скрыта по умолчанию */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease-in-out;
 }
 
-/* Когда мышка на карточке (.card:hover), меняем стиль кнопки .addToCart */
-.card:hover .addToCart {
+/*  при наведении на карточку */
+.card:hover .overlay {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
 }
 
-/* Блок с названием и ценами */
+/* --- ТЕКСТОВАЯ ЧАСТЬ --- */
 .info {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* Название товара */
 .title {
-  margin: 0;
   font-size: 20px;
   font-weight: 500;
-  color: #333333;
-  /*текстдлинный — (...) */
+  color: #000;
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Блок цен */
 .prices {
   display: flex;
-  align-items: baseline;
-  gap: 16px;
+  align-items: flex-end;
+  gap: 12px;
 }
 
-/* Текущая цена (большая) */
 .price {
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 600;
-  color: #000000;
-  line-height: 110%;
+  color: #000;
+  line-height: 100%;
 }
 
-/* Старая цена (серая, зачеркнутая) */
 .oldPrice {
-  font-size: 20px;
+  font-size: 16px;
+  text-decoration: line-through;
   color: #8b8b8b;
-  text-decoration: line-through; /* Зачеркивание */
-  font-weight: 500;
-  line-height: 130%;
+  margin-bottom: 2px;
 }
