@@ -113,19 +113,19 @@
 
 .btnSubmitted,
 .btnSubmitted:hover {
-  background-color: #f1f3f4; /* Светлый фон */
-  color: #0d50ff; /* Синий текст */
+  background-color: #f1f3f4;
+  color: #0d50ff;
   border-color: #f1f3f4;
-  cursor: default; /* Курсор не "рука", а стрелка */
+  cursor: default;
 }
 
 .inputError {
-  border-color: #ff3535 !important; /* Красная рамка */
-  color: #ff3535; /* Красный текст (опционально) */
+  border-color: #ff3535 !important;
+  color: #ff3535;
 }
 
 .inputError::placeholder {
-  color: #ff3535; /* Красный плейсхолдер (опционально) */
+  color: #ff3535;
   opacity: 0.8;
 }
 

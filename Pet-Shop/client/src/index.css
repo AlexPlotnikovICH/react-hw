@@ -1,4 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Цвета */
+  --color-accent: #0d50ff; /* Основной синий */
+  --color-accent-dark: #0a3ecc; /* Темно-синий (для hover) */
+  --color-text: #282828; /* Основной черный текст */
+  --color-text-secondary: #8b8b8b; /* Серый текст */
+  --color-bg: #ffffff; /* Фон страницы */
+  --color-light-grey: #f1f3f4; /* Фон кнопок и подложек */
+  /* Шрифты */
+  --font-main: 'Montserrat', sans-serif;
+}
 
 * {
   margin: 0;
@@ -10,8 +22,11 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-family: 'Montserrat', sans-serif;
-  color: #000;
+  font-family: var(--font-main);
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
 }
 
 ul {
@@ -21,15 +36,56 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.2s ease;
 }
 
 img {
   max-width: 100%;
   display: block;
 }
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ГЛОБАЛЬНЫЕ КЛАССЫ */
 .container {
   max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 40px;
-  box-sizing: border-box;
+}
+
+/* ГЛАВНЫЙ ЗАГОЛОВОК 64px 
+*/
+.page-title {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 110%;
+  color: var(--color-text);
+  margin-bottom: 40px;
+}
+
+/* АДАПТИВНОСТЬ  */
+
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .page-title {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
 }
