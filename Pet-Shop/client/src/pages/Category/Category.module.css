@@ -8,16 +8,11 @@
 
 .title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 64px; 
+  font-size: 64px;
   font-weight: 700;
   color: #282828;
   margin-bottom: 40px;
-  margin-top: 40px; 
-}
-
-/* Здесь будет жить наш FilterBar (пока пусто) */
-.filters {
-  margin-bottom: 32px;
+  margin-top: 40px;
 }
 
 /* СЕТКА ТОВАРОВ */

@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -13,12 +12,12 @@
   font-size: 40px;
   color: #282828;
   margin: 0;
-  white-space: nowrap; /* Чтобы текст не переносился */
+  white-space: nowrap;
+  margin-right: 32px;
 }
 
-/* Серая линия-разделитель */
 .line {
-  flex-grow: 1; /* Занимает всё свободное место */
+  flex-grow: 1;
   height: 1px;
   background-color: #dddddd;
 }
@@ -71,9 +70,9 @@
   background-color: #003cc5;
 }
 
-/* --- СЕТКА ДЛЯ ЗАПОЛНЕННОЙ КОРЗИНЫ (на будущее) --- */
+/* --- СЕТКА ДЛЯ ЗАПОЛНЕННОЙ КОРЗИНЫ --- */
 .cartContent {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr; /* Левая колонка шире правой */
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 32px;
 }

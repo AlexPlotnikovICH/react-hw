@@ -34,15 +34,15 @@ export const AddToCartBtn = ({
       onClick={handleAddToCart}
       className={className} // Чтобы можно было двигать через CSS-модули
       sx={{
-        textTransform: 'none', // Убираем капс
+        textTransform: 'none',
         fontWeight: 600,
         borderRadius: '6px',
         fontSize: '20px',
         padding: '16px 32px',
-        width: '100%', // Растягиваем на всю ширину родителя
+        width: '100%',
         lineHeight: 1,
 
-        // --- ЛОГИКА ЦВЕТОВ (согласно твоему скрину) ---
+        // --- ЛОГИКА ЦВЕТОВ ---
         ...(isAdded
           ? {
               // Состояние "Added" (Белая)
