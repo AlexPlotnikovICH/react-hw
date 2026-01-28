@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchCategory } from '../../redux/slices/categoriesSlice'
 import { ProductCard } from '../../components/ProductCard'
 import { Breadcrumbs } from '../../components/Breadcrumbs'
-import { FilterBar } from '../../components/FilterBar' // Импортируем наш компонент
+import { FilterBar } from '../../components/FilterBar'
 import styles from './Category.module.css'
 
 export const Category = () => {
@@ -25,19 +25,13 @@ export const Category = () => {
     dispatch(fetchCategory(id))
   }, [dispatch, id])
 
-  // --- ЛОГИКА ФИЛЬТРАЦИИ И СОРТИРОВКИ ---
-  // (Точно такая же, как на странице All Products)
+  // --- ЛОГИКА ФИЛЬТРАЦИИ ---
   const filteredProducts = (products || [])
     .filter(product => {
       const currentPrice = product.discont_price ?? product.price
-
-      // Фильтр по цене
       if (minPrice && currentPrice < +minPrice) return false
       if (maxPrice && currentPrice > +maxPrice) return false
-
-      // Фильтр по чекбоксу
       if (isDiscounted && !product.discont_price) return false
-
       return true
     })
     .sort((a, b) => {
@@ -50,14 +44,12 @@ export const Category = () => {
       return a.id - b.id
     })
 
-  // Обработчик цены
   const handlePriceChange = (type, value) => {
     if (value < 0) return
     if (type === 'min') setMinPrice(value)
     if (type === 'max') setMaxPrice(value)
   }
 
-  // Хлебные крошки
   const categoryLinks = [
     { label: 'Main page', url: '/' },
     { label: 'Categories', url: '/categories' },
@@ -65,35 +57,36 @@ export const Category = () => {
   ]
 
   return (
-    <main className='container'>
-      <Breadcrumbs links={categoryLinks} />
+    // 1. Внешняя обертка (отступ сверху)
+    <section className={styles.section}>
+      {/* 2. Внутренний контейнер (ширина) */}
+      <div className='container'>
+        <Breadcrumbs links={categoryLinks} />
 
-      <h2 className={styles.title}>{categoryTitle}</h2>
+        {/* Глобальный класс заголовка H1 */}
+        <h1 className='page-title'>{categoryTitle}</h1>
 
-      {/* Вставляем FilterBar */}
-      <FilterBar
-        minPrice={minPrice}
-        maxPrice={maxPrice}
-        sort={sort}
-        isDiscounted={isDiscounted}
-        onPriceChange={handlePriceChange}
-        onSortChange={setSort}
-        onDiscountChange={setIsDiscounted}
-        showDiscount={true} // Чекбокс включен!
-      />
+        <FilterBar
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          sort={sort}
+          isDiscounted={isDiscounted}
+          onPriceChange={handlePriceChange}
+          onSortChange={setSort}
+          onDiscountChange={setIsDiscounted}
+          showDiscount={true}
+        />
 
-      <div className={styles.list}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map(item => (
-            <ProductCard
-              key={item.id}
-              {...item} // свойства (id, title, price, image и т.д.)
-            />
-          ))
-        ) : (
-          <p>No products found based on your filters.</p>
-        )}
+        <div className={styles.list}>
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map(item => (
+              <ProductCard key={item.id} {...item} />
+            ))
+          ) : (
+            <p>No products found based on your filters.</p>
+          )}
+        </div>
       </div>
-    </main>
+    </section>
   )
 }

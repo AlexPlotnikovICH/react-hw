@@ -1,6 +1,10 @@
-.pageWrapper {
-  margin: 0 auto;
+.section {
   padding-top: 80px;
+  padding-bottom: 80px; /* Добавил отступ снизу, чтобы не прилипало к футеру */
+}
+
+.contentWrapper {
+  margin: 0 auto;
   max-width: 690px;
   width: 100%;
   display: flex;
@@ -24,22 +28,13 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 228px;
-}
-
-.title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 64px;
-  color: #282828;
-  margin: 0 0 16px 0;
 }
 
 .description {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 20px;
-  color: #8b8b8b;
+  color: var(--color-text-secondary);
   max-width: 650px;
   line-height: 130%;
   margin: 0 0 32px 0;
@@ -47,7 +42,7 @@
 
 .homeBtn {
   padding: 16px 56px;
-  background-color: #0d50ff;
+  background-color: var(--color-accent);
   color: #ffffff;
   text-decoration: none;
   border-radius: 6px;
@@ -55,8 +50,24 @@
   font-weight: 600;
   font-size: 20px;
   transition: background 0.2s ease;
+  display: inline-block;
 }
 
 .homeBtn:hover {
-  background-color: #003cc5;
+  background-color: var(--color-accent-dark);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 40px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .homeBtn {
+    padding: 12px 32px;
+    font-size: 16px;
+  }
 }

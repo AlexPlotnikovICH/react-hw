@@ -1,18 +1,5 @@
 .section {
-  width: 100%;
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 40px 40px 80px 40px;
-  box-sizing: border-box;
-}
-
-.title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 64px;
-  font-weight: 700;
-  color: #282828;
-  margin-bottom: 40px;
-  margin-top: 40px;
+  padding-top: 40px;
 }
 
 /* СЕТКА ТОВАРОВ */
@@ -20,22 +7,22 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
+  margin-bottom: 80px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 900px) {
   .list {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .list {
     grid-template-columns: 1fr;
   }

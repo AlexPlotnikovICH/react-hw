@@ -1,25 +1,38 @@
-/* --- ГЛАВНАЯ ОБЕРТКА (СЕТКА) --- */
+.section {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
 .productWrapper {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 32px;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
-/* --- ГАЛЕРЕЯ (ЛЕВАЯ ЧАСТЬ) --- */
+/* --- ГАЛЕРЕЯ --- */
+.mainImage {
+  flex-grow: 1;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
 .imageBox {
   display: flex;
   gap: 30px;
-  height: 572px;
+  height: auto;
+  align-items: flex-start;
 }
-
-/* Колонка миниатюр */
 .thumbnails {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .thumbItem {
   width: 150px;
   height: 115px;
@@ -27,86 +40,94 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  flex-shrink: 0;
 }
-
 .thumbItem img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #fff;
 }
-
-/* Главное фото */
-.mainImage {
-  flex-grow: 1;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
 .mainImage img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
+  max-height: 600px;
 }
 
-/* --- ПРАВАЯ ЧАСТЬ (ТЕКСТ) --- */
 .infoBox {
   display: flex;
   flex-direction: column;
-  min-height: 574px;
 }
 
 .title {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 40px;
-  color: #282828;
+  line-height: 110%;
+  color: var(--color-text);
   margin: 0;
+  word-wrap: break-word;
 }
 
-/* Цены */
+/* РОДИТЕЛЬСКИЙ БЛОК */
 .priceBlock {
   display: flex;
-  align-items: flex-end;
-  gap: 20px;
+  align-items: baseline;
+  gap: 32px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .currentPrice {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 40px;
-  color: #282828;
+  font-size: 64px;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+/* старая цена */
+.oldPriceWrapper {
+  position: relative;
 }
 
 .oldPrice {
-  font-family: 'Montserrat', sans-serif;
+  display: block;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 40px;
   text-decoration-line: line-through;
-  color: #8b8b8b;
-  margin-bottom: 8px;
+  color: var(--color-text-secondary);
+  line-height: 1;
 }
 
-/* --- КНОПКИ ДЕЙСТВИЯ --- */
+/* ПЛАШКА СКИДКИ */
+.discountBadge {
+  position: absolute;
+  top: -18px;
+  right: -75px;
+
+  background-color: var(--color-accent);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* --- КНОПКИ И ОПИСАНИЕ --- */
 .actionButtons {
   display: flex;
   gap: 16px;
   margin-bottom: 30px;
 }
-
 .addToCartBtn {
   flex-grow: 1;
   height: 58px;
   min-width: 200px;
+  font-family: inherit;
 }
-
-/* --- СЧЕТЧИК --- */
 .counter {
   display: flex;
   align-items: center;
@@ -118,35 +139,34 @@
   height: 58px;
   min-width: 120px;
 }
-
 .counter button {
   background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: #8b8b8b;
+  color: var(--color-text-secondary);
+  font-family: inherit;
 }
-
-/* --- ОПИСАНИЕ --- */
+.counter span {
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-text);
+}
 .description h4 {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 20px;
   margin-bottom: 10px;
 }
 
 .description p {
-  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #282828;
-  max-width: 500px;
-  transition: all 0.3s ease;
+  color: var(--color-text);
 }
 
 .textCollapsed {
   display: -webkit-box;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 9;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -158,29 +178,46 @@
 
 .readMore {
   margin-top: 10px;
-  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 600;
   text-decoration: underline;
   cursor: pointer;
-  color: #282828;
+  color: var(--color-text);
   width: fit-content;
 }
-
 .readMore:hover {
-  color: #0d50ff;
+  color: var(--color-accent);
 }
 
 @media (max-width: 900px) {
   .productWrapper {
     grid-template-columns: 1fr;
-    height: auto;
+    gap: 40px;
   }
   .imageBox {
+    flex-direction: column-reverse;
     height: auto;
-    max-height: 500px;
+    width: 100%;
   }
   .thumbnails {
-    display: none;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+  }
+  .thumbItem {
+    width: 100px;
+    height: 80px;
+  }
+}
+@media (max-width: 500px) {
+  .title {
+    font-size: 28px;
+  }
+  .currentPrice {
+    font-size: 32px;
+  }
+  .actionButtons {
+    flex-direction: column;
   }
 }
