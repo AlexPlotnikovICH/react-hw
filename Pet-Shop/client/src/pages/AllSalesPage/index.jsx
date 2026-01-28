@@ -10,8 +10,7 @@ export const AllSalesPage = () => {
   const dispatch = useDispatch()
   const { list } = useSelector(state => state.products)
 
-  // --- ЛОКАЛЬНЫЙ СТЕЙТ ФИЛЬТРОВ ---
-  // нужны только цена и сортировка. Чекбокс не нужен.
+  // --- ЛОКАЛЬНЫЙ СТЕЙТ ---
   const [minPrice, setMinPrice] = useState('')
   const [maxPrice, setMaxPrice] = useState('')
   const [sort, setSort] = useState('default')
@@ -23,10 +22,9 @@ export const AllSalesPage = () => {
   // --- ЛОГИКА ФИЛЬТРАЦИИ ---
   const filteredProducts = list
     .filter(product => {
-      // 1. СТРОГОЕ УСЛОВИЕ: Только товары со скидкой
+      // 1. Только товары со скидкой
       if (!product.discont_price) return false
 
-      // Здесь текущая цена — это ВСЕГДА discont_price
       const currentPrice = product.discont_price
 
       // 2. Фильтр по цене
@@ -45,47 +43,48 @@ export const AllSalesPage = () => {
       return a.id - b.id
     })
 
-  // Обработчик изменения цены
   const handlePriceChange = (type, value) => {
     if (value < 0) return
     if (type === 'min') setMinPrice(value)
     if (type === 'max') setMaxPrice(value)
   }
 
-  // Хлебные крошки
+  // Данные для компонента хлебных крошек
   const salesLinks = [
     { label: 'Main page', url: '/' },
-    { label: 'All sales', url: '/all_sales' },
+    { label: 'All sales', url: '/all_sales' }, // Проверь url в роутере, обычно это 'sales'
   ]
 
   return (
-    <main className='container'>
-      <Breadcrumbs links={salesLinks} />
+    // 1. Внешняя обертка для отступа сверху
+    <section className={styles.section}>
+      {/* 2. Глобальный контейнер для ширины */}
+      <div className='container'>
+        {/* Компонент крошек оставляем как был */}
+        <Breadcrumbs links={salesLinks} />
 
-      <h1 className={styles.title}>Discounted items</h1>
+        {/* Глобальный класс заголовка */}
+        <h1 className='page-title'>Discounted items</h1>
 
-      {/* Вставляем FilterBar.
-          ВАЖНО: showDiscount={false} скрывает чекбокс, 
-          так как здесь он бессмысленен.
-      */}
-      <FilterBar
-        minPrice={minPrice}
-        maxPrice={maxPrice}
-        sort={sort}
-        onPriceChange={handlePriceChange}
-        onSortChange={setSort}
-        showDiscount={false}
-      />
+        <FilterBar
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          sort={sort}
+          onPriceChange={handlePriceChange}
+          onSortChange={setSort}
+          showDiscount={false}
+        />
 
-      <div className={styles.productList}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map(product => (
-            <ProductCard key={product.id} {...product} />
-          ))
-        ) : (
-          <p>No sales found based on your filters.</p>
-        )}
+        <div className={styles.productList}>
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map(product => (
+              <ProductCard key={product.id} {...product} />
+            ))
+          ) : (
+            <p>No sales found based on your filters.</p>
+          )}
+        </div>
       </div>
-    </main>
+    </section>
   )
 }

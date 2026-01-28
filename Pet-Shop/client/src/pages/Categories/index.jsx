@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux' // ВОТ ЭТА СТРОКА НУЖНА
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchCategories } from '../../redux/slices/categoriesSlice'
 import { CategoryCard } from '../../components/CategoryCard'
 import { Breadcrumbs } from '../../components/Breadcrumbs'
@@ -19,19 +19,22 @@ export const CategoriesPage = () => {
   ]
 
   return (
-    <section className='container'>
-      {' '}
-      <Breadcrumbs links={categoriesLinks} />
-      <h1 className={styles.title}>Categories</h1>
-      <div className={styles.list}>
-        {categories.map(item => (
-          <CategoryCard
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            image={item.image}
-          />
-        ))}
+    <section className={styles.section}>
+      <div className='container'>
+        <Breadcrumbs links={categoriesLinks} />
+
+        <h1 className='page-title'>Categories</h1>
+
+        <div className={styles.list}>
+          {categories.map(item => (
+            <CategoryCard
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              image={item.image}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )

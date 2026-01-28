@@ -68,7 +68,8 @@ button {
   font-size: 64px;
   line-height: 110%;
   color: var(--color-text);
-  margin-bottom: 40px;
+  margin-top: 0; /* Убираем дефолтный отступ браузера сверху */
+  margin-bottom: 40px; /* Наш стандартный отступ снизу */
 }
 
 /* АДАПТИВНОСТЬ  */

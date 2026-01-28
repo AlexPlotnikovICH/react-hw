@@ -1,14 +1,29 @@
-.title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 64px;
-  color: #282828;
-  margin-bottom: 40px;
+.section {
+  padding-top: 40px;
 }
 
+/* СЕТКА ТОВАРОВ */
 .productList {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   margin-bottom: 80px;
+}
+
+@media (max-width: 1200px) {
+  .productList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .productList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .productList {
+    grid-template-columns: 1fr;
+  }
 }

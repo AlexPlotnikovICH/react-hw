@@ -1,16 +1,20 @@
+.section {
+  padding-top: 40px;
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 0;
   margin-bottom: 40px;
 }
 
 .title {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 40px;
-  color: #282828;
+  font-size: 64px;
+  line-height: 110%;
+  color: var(--color-text);
   margin: 0;
   white-space: nowrap;
   margin-right: 32px;
@@ -23,10 +27,9 @@
 }
 
 .backButton {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 16px;
-  color: #8b8b8b;
+  color: var(--color-text-secondary);
   text-decoration: none;
   border: 1px solid #dddddd;
   border-radius: 6px;
@@ -36,29 +39,26 @@
 }
 
 .backButton:hover {
-  background-color: #f0f0f0;
-  color: #282828;
+  background-color: var(--color-light-grey);
+  color: var(--color-text);
 }
 
-/* --- СТИЛИ ПУСТОЙ КОРЗИНЫ --- */
 .emptyState {
   margin-top: 40px;
   margin-bottom: 80px;
 }
 
 .emptyState p {
-  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
-  color: #282828;
+  color: var(--color-text);
   margin-bottom: 32px;
 }
 
 .continueBtn {
   display: inline-block;
-  background-color: #0d50ff;
+  background-color: var(--color-accent);
   color: white;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 16px;
   padding: 16px 56px;
@@ -67,12 +67,29 @@
 }
 
 .continueBtn:hover {
-  background-color: #003cc5;
+  background-color: var(--color-accent-dark);
 }
 
-/* --- СЕТКА ДЛЯ ЗАПОЛНЕННОЙ КОРЗИНЫ --- */
 .cartContent {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 1000px) {
+  .cartContent {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+    margin-right: 16px;
+  }
+
+  .line {
+    display: none;
+  }
 }
