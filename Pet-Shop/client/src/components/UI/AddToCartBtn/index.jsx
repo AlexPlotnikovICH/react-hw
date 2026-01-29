@@ -22,7 +22,7 @@ export const AddToCartBtn = ({
       e.preventDefault()
     }
 
-    // Если товар уже добавлен, пока ничего не делаем (или можно вести в корзину)
+    // Если товар уже добавлен
     if (isAdded) return
 
     // Добавляем в корзину
@@ -32,8 +32,11 @@ export const AddToCartBtn = ({
   return (
     <Button
       onClick={handleAddToCart}
-      className={className} // Чтобы можно было двигать через CSS-модули
+      className={className} // для CSS-модули родителя
       sx={{
+        // --- ЛЕЧИМ ШРИФТ ---
+        fontFamily: "'Montserrat', sans-serif",
+
         textTransform: 'none',
         fontWeight: 600,
         borderRadius: '6px',
@@ -41,6 +44,7 @@ export const AddToCartBtn = ({
         padding: '16px 32px',
         width: '100%',
         lineHeight: 1,
+        boxShadow: 'none',
 
         // --- ЛОГИКА ЦВЕТОВ ---
         ...(isAdded
@@ -50,19 +54,21 @@ export const AddToCartBtn = ({
               color: '#282828',
               border: '1px solid #282828',
               '&:hover': {
-                bgcolor: '#FFFFFF', // При наведении остается белой
+                bgcolor: '#FFFFFF',
                 borderColor: '#282828',
+                boxShadow: 'none',
               },
             }
           : {
               // Состояние "Add to cart" (Синяя)
               bgcolor: '#0D50FF',
               color: '#FFFFFF',
-              border: '1px solid #0D50FF', // Чтобы размер не прыгал
+              border: '1px solid #0D50FF',
               // Состояние Hover (Черная)
               '&:hover': {
                 bgcolor: '#282828',
                 borderColor: '#282828',
+                boxShadow: 'none',
               },
             }),
       }}
